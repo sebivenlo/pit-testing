@@ -1,0 +1,107 @@
+\documentclass[twocolumn,a4paper]{article}
+\usepackage{xcolor,
+  graphicx,
+  multicol,
+  listings,savetrees}
+\setlength\columnseprule{.5pt}
+\setlength\columnsep{2em}
+% \usepackage[a4paper,
+%       scale={0.92,1.03},
+%       includeheadfoot
+%       ]{geometry}
+\usepackage{palatino}
+
+\definecolor{fontys}{rgb}{.3,0,.3}
+\lstset{language=Java,basicstyle={\ttfamily}}
+\lstset{basicstyle={\scriptsize},language=java,frame=shadowbox,rulesepcolor=\color{fontys}}
+
+\providecommand\Code[1]{{\color{fontys}\ttfamily#1}}
+
+\title{PRO2/SEN1 TDD List}
+\author{Pieter~van~den~Hombergh}
+\begin{document}
+\maketitle
+
+\section*{Test driven development of two SimpleList implementations}
+
+In this exercise, you will develop two implementations of a SimpleList
+interface. The approach is very similar to the Stack task in SEN1.
+
+The task counts for JAVA2 and SEN1.
+
+Work test driven. Each time you have implemented a test, commit. Each
+time you implemented the business logic of a requirement, commit.
+
+The interface is well\footnote{the javadoc in the project zip file} documented. Note that the interface it selves
+extends \lstinline{Iterable<E>}, which needs some extra attention.
+Implementing Iterable, allows the user of objects of such class to use
+the \textit{for-each} for loop type.
+
+\lstinputlisting[caption={SimpleList interface}]{code/SimpleList.java}
+
+\subsection*{Implementing an Iterator}
+Implementing \Code{Iterable} means that your class can produce an
+\textit{implementation} of \Code{Iterator}, which is another interface.
+
+Iterator declares three methods, of which only two need an actual
+implementation. It is okay to leave the \Code{remove()} unimplemented
+in the sense that it may throw a
+\Code{UnsupportedOperationException}. In Java 8 \Code{remove()} is a so called
+default method that does exactly that.
+
+Implementing an iterator is typically done using an inner class.
+A instance of said inner class is initialized with members that are able to
+remember a \textbf{position} of the ``next'' element inside the
+collection (list in this case). The method \Code{next()} can then
+fetch the next element AND advance the position and return the fetched
+element. 
+
+For a linked list implementation, the \textit{position} is simply another link,
+initialized appropriately. For an array list implementation it is
+simply an index into the array.
+
+Advancing the position is
+\begin{itemize}
+\item increment the position index for the array variant
+\item move the position to position.next.
+\end{itemize}
+
+Not that \Code{hasNext()} should return true, when a following call of
+\Code{next()} can produce an element and false when the position
+reached the end of the list.
+
+\subsection*{Sorting a  list}
+To be able to sort lists of elements, you need to compare those
+elements. A comparator is what you need. In Java \lstinline{Comparator<T>} is another
+Interface. A comparator compares two
+elements, say $a$ and $b$, and produces the following outcomes:
+\begin{description}%[srt]
+\item[NEGATIVE] Some int value less then zero, saying $a < b$.
+\item[ZERO] int 0 which says the elements compare equal as far as the comparator
+  is concerned.
+\item[POSITIVE] some value int value greater then zero, saying $a > b $.
+\end{description}
+
+
+Classes that themselves implement \lstinline{Comparable<T>} provide a
+method \lstinline{int compareTo(T other)}, which produces the result
+expected by a comparator, when \textit{this} is $a$ and $b$ is
+\textit{other}.
+This leads to the following simple implementation of a Comparator:
+
+\lstinputlisting[caption={Comparator for Comparables}]{code/Comparator.java}
+
+\subsection*{Hints for the Linked list implementation}
+It appears to be easier to use dummy links for head and tail of the
+list.
+Head.next is the first element; head.next.payload is the content of
+that first link; tail is the element where you have to
+add new elements to the list.
+Other solutions are possible.
+
+\subsection*{Deliverables}
+\begin{itemize}
+\item A Netbeans project containing all java files. Check in your
+  solution to the appropriate directory named 'tddlist' under trunk.
+\end{itemize}
+\end{document}

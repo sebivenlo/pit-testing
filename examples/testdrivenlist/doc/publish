@@ -1,0 +1,3 @@
+#!/bin/bash
+scp testdrivenlist.pdf fontysvenlo.org:/home/sen1/public_html/pdf
+ssh fontysvenlo.org chmod g+w /home/sen1/public_html/pdf/testdrivenlist.pdf

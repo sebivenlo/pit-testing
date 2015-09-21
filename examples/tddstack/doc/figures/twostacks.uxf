@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>40</y>
+      <w>200</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>template=E
+&lt;&lt;interface&gt;&gt;
+/Stack/
+--
++ push(E e): void
++ pop(): E
++ peek(): E
++ isEmpty(): boolean
+
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>210</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>template=E
+ArrayStack
+--
+-top: int
+-storage: E[]
+--
+~ capacity(): int
+~ size(): int
+~ contains(Object e): boolean
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>160</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>210</y>
+      <w>210</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>template=E
+LinkedClass
+--
+- top: Link&lt;E&gt;
+--
+--
+layer=2
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>160</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;240.0;40.0;240.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>290</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>template=E
+Link
+--
+_~ e: E_
+_~ next: Link&lt;E&gt;_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>10</x>
+      <y>10</y>
+      <w>520</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>util
+--
+layer=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
