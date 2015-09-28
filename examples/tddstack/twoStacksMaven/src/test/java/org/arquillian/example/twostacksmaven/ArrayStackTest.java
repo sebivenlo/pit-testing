@@ -9,6 +9,7 @@ package org.arquillian.example.twostacksmaven;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
@@ -58,6 +59,14 @@ public class ArrayStackTest extends StackTestBase {
             assertEquals( "Datum off stack", x, stack.pop() );
             assertFalse( "and gone", stack.contains( x ) );
         }
+    }
+    
+    @Test public void contains_after_puch(){
+        ArrayStack<String> stack = ( ArrayStack<String> ) createInstance();
+        String s = "A";
+        stack.push(s);
+        assertTrue(stack.contains(s));
+        
     }
 
 }
