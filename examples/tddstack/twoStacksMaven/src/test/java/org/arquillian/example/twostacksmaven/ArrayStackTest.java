@@ -61,7 +61,7 @@ public class ArrayStackTest extends StackTestBase {
         }
     }
     
-    @Test public void contains_after_puch(){
+    @Test public void contains_after_push(){
         ArrayStack<String> stack = ( ArrayStack<String> ) createInstance();
         String s = "A";
         stack.push(s);
