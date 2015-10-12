@@ -10,7 +10,7 @@ package org.arquillian.example.twostacksmaven;
  *
  * @author Ennyo Feller
  */
-public class main {
+public class Main {
     public static void main(String[] args) {
         
     }

@@ -35,7 +35,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public boolean isEmpty() {
-        return 0 > top;
+        return 0 == size();
     }
 
     @Override
