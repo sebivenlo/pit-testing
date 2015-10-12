@@ -67,4 +67,28 @@ public class ArrayStackTest extends StackTestBase {
 
     }
 
+    @Test
+    public void is_it_lifo() {
+
+        ArrayStack<String> stack = ( ArrayStack<String> ) createInstance();
+        int ic = stack.capacity();
+        System.out.println( "cap=" + stack.capacity() );
+        String[] testData = { "A", "B", "C", "D", "E" };
+        for ( String s : testData ) {
+            stack.push( s );
+        }
+        
+        assertEquals(stack.pop(), "E");
+        assertEquals(stack.pop(), "D");
+        assertEquals(stack.pop(), "C");
+        
+        stack.push("wolf");
+        
+        assertEquals(stack.pop(), "wolf");
+        assertEquals(stack.pop(), "B");
+        assertEquals(stack.pop(), "A");
+        
+    }
+    
+    
 }
