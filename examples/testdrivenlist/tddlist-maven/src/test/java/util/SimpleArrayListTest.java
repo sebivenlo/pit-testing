@@ -73,6 +73,7 @@ public class SimpleArrayListTest extends ListTestBase {
 
     @Override
     SimpleList<String> newInstance() {
-        return new SimpleArrayList<>();
+        return new SimpleArrayList<>(0);//fixed get from arraylist
+        //return new SimpleArrayList<>();
     }
 }

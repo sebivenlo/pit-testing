@@ -251,6 +251,7 @@ public abstract class ListTestBase {
 
     @Test
     public void take_beyond_size_produces_null() {
+        assertNull( list.take( 0 ) );
         assertNull( list.take( 1 ) );
     }
 
@@ -261,10 +262,11 @@ public abstract class ListTestBase {
 
     @Test
     public void test_index_out_of_range_produces_null() {
+        assertNull("Empty list", list.get());//fixed get method from linkedlist3
         fill( list );
         assertNull( "below zero", list.get( -2 ) );
-        assertNull( "below zero", list.get( list.size() ) );
-        assertNull( "below zero", list.get( list.size() + 1 ) );
+        assertNull( "size", list.get( list.size() ) );
+        assertNull( "size + 1", list.get( list.size() + 1 ) );
 
     }
 
