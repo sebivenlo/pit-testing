@@ -1,0 +1,44 @@
+**Pitest**
+Mutation tests, the third step in testing your code
+
+**But there is more: Pitest**
+Conditional boundaries: 			10x
+Negated conditional:	  			3 x
+Integer division <-> multiplication:	2 x
+Integer addition <-> subtraction:		2 x
+
+**PIT default mutations**
+Conditionals Boundary Mutator   	(a < b) 		=> 	(a <= b)
+Increments Mutator					i++;			=> 	i--;
+Invert Negatives Mutator			return -i;		=>	return i;
+Math Mutator						a = b + c;		=> 	a = b - c;
+Negate Conditionals Mutator			(a == b)		=>	(a != b)
+Return Values Mutator				return size	=>	return (x == 0 ? 1 : 0)
+Void Method Calls Mutator			removes void method calls
+
+**Why use pitest?**
+Traditional test coverage measures only which code is executed by your tests. 
+It does not check that your tests are actually able to detect faults in the executed code. 
+It is therefore only able to identify code the is definitely not tested.
+
+**Example sen project**
+tddlist project -> test driven development of a simplelist interface
+Implements SimpleList class in 4 different ways
+With array backend
+LinkedList with dummy head and tail
+LinkedList with null head and tail
+LinkedList with dummy head and tail node, in beginning head.next == tail
+
+**Unit tests**
+All test passed
+
+**Code coverage**
+First converted to maven project
+Added Jacoco code coverage
+100% code coverage
+
+**But there is more: Pitest**
+Conditional boundaries: 			10x
+Negated conditional:	  			3 x
+Integer division <-> multiplication:	2 x
+Integer addition <-> subtraction:		2 x
